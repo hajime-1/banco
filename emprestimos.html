@@ -1,35 +1,174 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Empréstimos — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empréstimos — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link active">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link active">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:40px 20px">
-    <h1>Empréstimos</h1>
-    <p>Página de empréstimos — simulação de parcelas e simulador.</p>
-    <p><a href="./main.html">Voltar à página inicial</a></p>
+
+  <main class="section bg-gradient">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Empréstimos</h1>
+        <p class="section-description">
+          Simule e contrate empréstimos com as melhores taxas
+        </p>
+      </div>
+      
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <h2 class="card-title">Simular empréstimo</h2>
+          <p class="card-description">Veja quanto você pode pegar emprestado</p>
+        </div>
+        <div class="card-content">
+          <form id="simulacaoForm">
+            <div class="form-group">
+              <label class="form-label" for="valor">Valor desejado</label>
+              <input class="form-input" type="number" id="valor" name="valor" placeholder="R$ 10.000,00" min="1000" max="50000" value="10000">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="parcelas">Número de parcelas</label>
+              <input class="form-input" type="number" id="parcelas" name="parcelas" min="6" max="48" value="12">
+            </div>
+            
+            <button type="submit" class="btn btn-cyan btn-full">Simular</button>
+          </form>
+          
+          <div id="resultado" style="display: none; margin-top: 1.5rem; padding: 1.5rem; background: var(--cyan-50); border: 1px solid var(--cyan-200); border-radius: var(--radius-lg);">
+            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--cyan-900); margin-bottom: 1rem;">Resultado da simulação</h3>
+            <div style="display: grid; gap: 0.75rem;">
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--cyan-700);">Valor solicitado:</span>
+                <strong id="valorSolicitado" style="color: var(--cyan-900);">R$ 10.000,00</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--cyan-700);">Taxa de juros (a.m.):</span>
+                <strong id="taxa" style="color: var(--cyan-900);">1,99%</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--cyan-700);">Parcelas:</span>
+                <strong id="numParcelas" style="color: var(--cyan-900);">12x</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid var(--cyan-300);">
+                <span style="color: var(--cyan-700);">Valor da parcela:</span>
+                <strong id="valorParcela" style="color: var(--cyan-900); font-size: 1.25rem;">R$ 890,00</strong>
+              </div>
+            </div>
+            <button class="btn btn-cyan btn-full" style="margin-top: 1rem;" onclick="showToast('Função em desenvolvimento', 'info')">Contratar empréstimo</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-content">
+            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">Empréstimo Pessoal</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem;">Taxas a partir de 1,99% a.m.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">✓ Até R$ 50.000</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">✓ Em até 48 meses</li>
+              <li style="padding: 0.5rem 0;">✓ Aprovação rápida</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">Empréstimo Consignado</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem;">Taxas a partir de 1,49% a.m.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">✓ Desconto em folha</li>
+              <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--gray-200);">✓ Menores taxas</li>
+              <li style="padding: 0.5rem 0;">✓ Para aposentados e pensionistas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById('simulacaoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const valor = parseFloat(document.getElementById('valor').value);
+      const parcelas = parseInt(document.getElementById('parcelas').value);
+      const taxa = 0.0199; // 1.99% a.m.
+      
+      // Cálculo simplificado (não é o cálculo real de empréstimo)
+      const valorParcela = (valor * (1 + taxa * parcelas)) / parcelas;
+      
+      document.getElementById('valorSolicitado').textContent = `R$ ${valor.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+      document.getElementById('taxa').textContent = '1,99%';
+      document.getElementById('numParcelas').textContent = `${parcelas}x`;
+      document.getElementById('valorParcela').textContent = `R$ ${valorParcela.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+      
+      document.getElementById('resultado').style.display = 'block';
+      showToast('Simulação realizada com sucesso!', 'success');
+    });
+  </script>
 </body>
 </html>

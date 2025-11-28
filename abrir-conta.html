@@ -1,64 +1,161 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abrir Conta — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abrir Conta — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+    <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:24px 20px;max-width:700px">
-    <h1>Abrir Conta</h1>
-    <p>Preencha seus dados pessoais. Esta é uma simulação — os dados serão gravados em um banco SQLite local pelo servidor.</p>
 
-    <form id="openAccount" method="post" action="/api/abrir-conta" target="_blank">
-      <label for="nome">Nome completo</label>
-      <input id="nome" name="nome" type="text" required>
-
-      <label for="cpf">CPF</label>
-      <input id="cpf" name="cpf" type="text" inputmode="numeric" required>
-
-      <label for="email">E‑mail</label>
-      <input id="email" name="email" type="email" required>
-
-      <label for="telefone">Telefone</label>
-      <input id="telefone" name="telefone" type="tel" inputmode="tel">
-
-      <label for="agencia">Agência</label>
-      <input id="agencia" name="agencia" type="text">
-
-      <label for="conta">Conta</label>
-      <input id="conta" name="conta" type="text">
-
-      <label for="senha">Senha</label>
-      <input id="senha" name="senha" type="password" required>
-
-      <div style="margin-top:14px">
-        <button class="btn btn-primary" type="submit">Enviar e abrir nova aba</button>
-        <a class="btn" href="./main.html">Cancelar</a>
+  <main class="section bg-gradient">
+    <div class="container" style="max-width: 42rem;">
+      <div class="section-header">
+        <h1 class="section-title">Abrir Conta</h1>
+        <p class="section-description">
+          Preencha seus dados pessoais para criar sua conta
+        </p>
       </div>
-    </form>
-
-    <p style="margin-top:18px;font-size:13px;color:#6b7280">Ao enviar, o servidor local irá gravar os dados no arquivo de banco de dados SQLite.</p>
+      
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Dados Pessoais</h2>
+          <p class="card-description">
+            Esta é uma simulação — os dados não serão armazenados.
+          </p>
+        </div>
+        <div class="card-content">
+          <form id="abrirContaForm">
+            <div class="form-group">
+              <label class="form-label" for="nome">
+                Nome completo <span class="required">*</span>
+              </label>
+              <input class="form-input" type="text" id="nome" name="nome" placeholder="João da Silva" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="cpf">
+                CPF <span class="required">*</span>
+              </label>
+              <input class="form-input" type="text" id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="email">
+                E-mail <span class="required">*</span>
+              </label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="seu@email.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="telefone">Telefone</label>
+              <input class="form-input" type="tel" id="telefone" name="telefone" inputmode="tel" placeholder="(00) 00000-0000">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="senha">
+                Senha <span class="required">*</span>
+              </label>
+              <input class="form-input" type="password" id="senha" name="senha" placeholder="Crie uma senha segura" required>
+              <p style="font-size: 0.75rem; color: var(--gray-500); margin-top: 0.25rem;">
+                Mínimo de 6 caracteres
+              </p>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-cyan" style="flex: 1;">
+                <svg style="width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;"><use href="#icon-check-circle"></use></svg>
+                Criar conta
+              </button>
+              <a href="index.html" class="btn btn-secondary" style="flex: 1;">Cancelar</a>
+            </div>
+          </form>
+          
+          <div class="alert alert-info">
+            <strong>Nota:</strong> Esta é uma demonstração. Nenhum dado será realmente armazenado ou processado.
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById('abrirContaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      if (validateForm('abrirContaForm')) {
+        showToast('Conta criada com sucesso!', 'success');
+        setTimeout(() => {
+          window.location.href = 'conta-criada.html';
+        }, 1500);
+      } else {
+        showToast('Por favor, preencha todos os campos obrigatórios.', 'error');
+      }
+    });
+  </script>
 </body>
 </html>

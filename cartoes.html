@@ -1,35 +1,226 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cartões — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartões — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+    <symbol id="icon-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+      <line x1="1" y1="10" x2="23" y2="10"></line>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+    </symbol>
+    <symbol id="icon-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+      <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link active">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link active">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:40px 20px">
-    <h1>Cartões</h1>
-    <p>Área de cartões — bloquear, desbloquear e ver faturas (simulação).</p>
-    <p><a href="./main.html">Voltar à página inicial</a></p>
+
+  <main class="section bg-gradient">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Meus Cartões</h1>
+        <p class="section-description">
+          Gerencie seus cartões de crédito e débito
+        </p>
+      </div>
+      
+      <!-- Cartão Virtual -->
+      <div class="card" style="margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--cyan-600), var(--teal-600)); color: white; border: none;">
+        <div class="card-content" style="padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 3rem;">
+            <div>
+              <p style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.25rem;">Cartão de Crédito</p>
+              <p style="font-size: 1.25rem; font-weight: 700;">Banco Moderno Platinum</p>
+            </div>
+            <svg style="width: 2.5rem; height: 2.5rem; opacity: 0.9;"><use href="#icon-credit-card"></use></svg>
+          </div>
+          
+          <div style="margin-bottom: 2rem;">
+            <p style="font-size: 1.5rem; font-weight: 600; letter-spacing: 0.1em;">•••• •••• •••• 3456</p>
+          </div>
+          
+          <div style="display: flex; justify-content: space-between; align-items: end;">
+            <div>
+              <p style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 0.25rem;">Nome</p>
+              <p style="font-weight: 600;">JOÃO DA SILVA</p>
+            </div>
+            <div>
+              <p style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 0.25rem;">Validade</p>
+              <p style="font-weight: 600;">12/28</p>
+            </div>
+            <div style="text-align: right;">
+              <div style="width: 3rem; height: 2rem; background: rgba(255,255,255,0.3); border-radius: 0.25rem; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">
+                VISA
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Informações do Cartão -->
+      <div class="grid grid-2" style="margin-bottom: 1.5rem;">
+        <div class="card">
+          <div class="card-content">
+            <p style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Fatura atual</p>
+            <p style="font-size: 2rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem;">R$ 1.245,80</p>
+            <p style="font-size: 0.875rem; color: var(--gray-600);">Vencimento: 10/12/2025</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <p style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Limite disponível</p>
+            <p style="font-size: 2rem; font-weight: 700; color: var(--emerald-600); margin-bottom: 0.5rem;">R$ 8.754,20</p>
+            <p style="font-size: 0.875rem; color: var(--gray-600);">Limite total: R$ 10.000,00</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ações do Cartão -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <h2 class="card-title">Ações do cartão</h2>
+          <p class="card-description">Gerencie seu cartão</p>
+        </div>
+        <div class="card-content">
+          <div class="grid grid-2">
+            <button id="toggleBlock" class="btn btn-secondary btn-full">
+              <svg style="width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;"><use href="#icon-lock"></use></svg>
+              Bloquear cartão
+            </button>
+            <button class="btn btn-secondary btn-full" onclick="showToast('Função em desenvolvimento', 'info')">
+              Aumentar limite
+            </button>
+            <button class="btn btn-secondary btn-full" onclick="showToast('Função em desenvolvimento', 'info')">
+              Ver fatura completa
+            </button>
+            <button class="btn btn-secondary btn-full" onclick="showToast('Função em desenvolvimento', 'info')">
+              Pagar fatura
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Últimas Compras -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Últimas compras</h2>
+          <p class="card-description">Transações recentes no cartão</p>
+        </div>
+        <div class="card-content" style="padding: 0;">
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <p style="font-weight: 600; color: var(--gray-900);">Supermercado Extra</p>
+              <p style="font-size: 0.875rem; color: var(--gray-600);">Hoje, 15:42</p>
+            </div>
+            <p style="font-weight: 700; color: var(--gray-900);">R$ 234,50</p>
+          </div>
+          
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <p style="font-weight: 600; color: var(--gray-900);">Netflix</p>
+              <p style="font-size: 0.875rem; color: var(--gray-600);">Ontem, 08:30</p>
+            </div>
+            <p style="font-weight: 700; color: var(--gray-900);">R$ 55,90</p>
+          </div>
+          
+          <div style="padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <p style="font-weight: 600; color: var(--gray-900);">Posto Shell</p>
+              <p style="font-size: 0.875rem; color: var(--gray-600);">25/11/2025</p>
+            </div>
+            <p style="font-weight: 700; color: var(--gray-900);">R$ 180,00</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    // Toggle block/unblock card
+    let isBlocked = false;
+    const toggleBtn = document.getElementById('toggleBlock');
+    
+    toggleBtn.addEventListener('click', function() {
+      isBlocked = !isBlocked;
+      
+      if (isBlocked) {
+        this.innerHTML = '<svg style="width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;"><use href="#icon-unlock"></use></svg>Desbloquear cartão';
+        this.classList.remove('btn-secondary');
+        this.classList.add('btn-cyan');
+        showToast('Cartão bloqueado com sucesso', 'success');
+      } else {
+        this.innerHTML = '<svg style="width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;"><use href="#icon-lock"></use></svg>Bloquear cartão';
+        this.classList.remove('btn-cyan');
+        this.classList.add('btn-secondary');
+        showToast('Cartão desbloqueado com sucesso', 'success');
+      }
+    });
+  </script>
 </body>
 </html>

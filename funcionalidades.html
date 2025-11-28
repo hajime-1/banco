@@ -1,40 +1,147 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Funcionalidades — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funcionalidades — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+    </symbol>
+    <symbol id="icon-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+      <line x1="1" y1="10" x2="23" y2="10"></line>
+    </symbol>
+    <symbol id="icon-line-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+      <polyline points="17 6 23 6 23 12"></polyline>
+    </symbol>
+    <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+      <polyline points="14 2 14 8 20 8"></polyline>
+      <line x1="16" y1="13" x2="8" y2="13"></line>
+      <line x1="16" y1="17" x2="8" y2="17"></line>
+      <polyline points="10 9 9 9 8 9"></polyline>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:40px 20px">
-    <h1>Funcionalidades</h1>
-    <ul>
-      <li>PIX e Transferências</li>
-      <li>Pagamentos e Boletos</li>
-      <li>Cartões</li>
-      <li>Investimentos</li>
-    </ul>
-    <p><a href="./main.html">Voltar à página inicial</a></p>
+
+  <main class="section bg-gradient">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Funcionalidades</h1>
+        <p class="section-description">
+          Conheça todos os recursos disponíveis no Banco Moderno
+        </p>
+      </div>
+      
+      <div class="grid grid-2">
+        <a href="transferencia.html" class="feature-card">
+          <div class="feature-icon">
+            <svg><use href="#icon-zap"></use></svg>
+          </div>
+          <h3 class="feature-title">PIX e Transferências</h3>
+          <p class="feature-description">
+            Realize transferências instantâneas via PIX ou TED/DOC. Envie e receba dinheiro em segundos com total segurança e confirmação imediata.
+          </p>
+        </a>
+        
+        <a href="pagamentos.html" class="feature-card">
+          <div class="feature-icon">
+            <svg><use href="#icon-file-text"></use></svg>
+          </div>
+          <h3 class="feature-title">Pagamentos e Boletos</h3>
+          <p class="feature-description">
+            Pague contas, boletos e tributos. Configure agendamentos automáticos e acompanhe todas as suas cobranças em um só lugar.
+          </p>
+        </a>
+        
+        <a href="cartoes.html" class="feature-card">
+          <div class="feature-icon">
+            <svg><use href="#icon-credit-card"></use></svg>
+          </div>
+          <h3 class="feature-title">Cartões</h3>
+          <p class="feature-description">
+            Gerencie seus cartões de crédito e débito. Bloqueie, desbloqueie, acompanhe faturas e ajuste limites em tempo real pelo app.
+          </p>
+        </a>
+        
+        <a href="investimentos.html" class="feature-card">
+          <div class="feature-icon">
+            <svg><use href="#icon-line-chart"></use></svg>
+          </div>
+          <h3 class="feature-title">Investimentos</h3>
+          <p class="feature-description">
+            Invista com simplicidade. Acesse produtos de renda fixa, fundos e mais. Comece a investir com poucos cliques e acompanhe seus rendimentos.
+          </p>
+        </a>
+      </div>
+      
+      <div style="margin-top: 3rem; text-align: center;">
+        <a href="index.html" class="btn btn-cyan">Voltar à página inicial</a>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
 </body>
 </html>

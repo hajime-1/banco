@@ -1,18 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://hajime-1.github.io/banco/main">
-    <title>Redirect</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Moderno — Gerencie seu dinheiro de forma simples e segura</title>
+  <meta name="description" content="Pagamento de contas, transferências, investimentos e serviços — tudo na palma da mão.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <!-- SVG Icons Sprite -->
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+    </symbol>
+    <symbol id="icon-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+      <line x1="1" y1="10" x2="23" y2="10"></line>
+    </symbol>
+    <symbol id="icon-line-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+      <polyline points="17 6 23 6 23 12"></polyline>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+    </symbol>
+    <symbol id="icon-smartphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+      <line x1="12" y1="18" x2="12.01" y2="18"></line>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+      <polyline points="17 6 23 6 23 12"></polyline>
+    </symbol>
+  </svg>
 </head>
-    <body>
-        Redirecting to <a href="https://hajime-1.github.io/banco/main">Landing Page</a>...
-    </body>
-    <script>
-        // set it as a fallback
-        setTimeout(function() {
-            window.location.href = "https://hajime-1.github.io/banco/main";
-        }, 500);
-    </script>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>
+              Gerencie seu dinheiro de forma 
+              <span class="highlight">simples e segura</span>
+            </h1>
+            <p>
+              Pagamento de contas, transferências, investimentos e serviços — tudo na palma da mão.
+            </p>
+            <div class="hero-cta">
+              <a href="abrir-conta.html" class="btn btn-primary">
+                Abrir conta
+                <svg><use href="#icon-arrow-right"></use></svg>
+              </a>
+              <a href="funcionalidades.html" class="btn btn-outline">
+                Conheça as funcionalidades
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <div class="card" style="max-width: 28rem; margin: 0 auto;">
+              <div class="card-header">
+                <h2 class="card-title">Entrar na conta</h2>
+                <p class="card-description">Acesse sua conta bancária</p>
+              </div>
+              <div class="card-content">
+                <form id="loginForm">
+                  <div class="form-group">
+                    <label class="form-label" for="agencia">Agência</label>
+                    <input class="form-input" type="text" id="agencia" name="agencia" inputmode="numeric" placeholder="0000">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="form-label" for="conta">Conta</label>
+                    <input class="form-input" type="text" id="conta" name="conta" inputmode="numeric" placeholder="000000">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="form-label" for="senha">Senha</label>
+                    <input class="form-input" type="password" id="senha" name="senha" placeholder="••••••">
+                  </div>
+                  
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-cyan btn-full">Entrar</button>
+                  </div>
+                  
+                  <a href="#" class="form-link" style="display: block; margin-top: 1rem;">Esqueci minha senha</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section bg-gradient">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Funcionalidades principais</h2>
+        <p class="section-description">
+          Tudo que você precisa para gerenciar suas finanças em um só lugar
+        </p>
+      </div>
+      
+      <div class="grid grid-4">
+        <a href="transferencia.html" class="feature-card">
+          <div class="feature-icon">
+            <svg><use href="#icon-zap"></use></svg>
+          </div>
+          <h3 class="feature-title">PIX e Transferências</h3>
+          <p class="feature-description">
+            Envie e receba em segundos, com confirmação imediata.
+          </p>
+        </a>
+        
+        <a href="cartoes.html" class="feature-card">
+          <div class="feature-icon">
+            <svg><use href="#icon-credit-card"></use></svg>
+          </div>
+          <h3 class="feature-title">Cartão e Limites</h3>
+          <p class="feature-description">
+            Bloqueie/desbloqueie, acompanhe faturas e ajuste limites em tempo real.
+          </p>
+        </a>
+        
+        <a href="investimentos.html" class="feature-card">
+          <div class="feature-icon">
+            <svg><use href="#icon-line-chart"></use></svg>
+          </div>
+          <h3 class="feature-title">Investimentos</h3>
+          <p class="feature-description">
+            Produtos simples para começar a investir com poucos cliques.
+          </p>
+        </a>
+        
+        <a href="conta.html" class="feature-card">
+          <div class="feature-icon">
+            <svg><use href="#icon-lock"></use></svg>
+          </div>
+          <h3 class="feature-title">Segurança Total</h3>
+          <p class="feature-description">
+            Proteção avançada com autenticação biométrica e criptografia de ponta.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Account Preview Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Resumo da conta (demo)</h2>
+      </div>
+      
+      <div class="card" style="max-width: 48rem; margin: 0 auto;">
+        <div class="card-content" style="padding: 2rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.5rem; border-bottom: 1px solid var(--gray-200); margin-bottom: 1.5rem;">
+            <div>
+              <p style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.25rem;">Saldo disponível</p>
+              <p style="font-size: 2.5rem; font-weight: 700; color: var(--gray-900);">R$ 5.234,50</p>
+            </div>
+            <svg style="width: 4rem; height: 4rem; color: var(--cyan-600);"><use href="#icon-smartphone"></use></svg>
+          </div>
+          
+          <div class="grid grid-2" style="padding: 1rem 0; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <svg style="width: 1.25rem; height: 1.25rem; color: var(--emerald-600);"><use href="#icon-trending-up"></use></svg>
+              <div>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Última movimentação</p>
+                <p style="font-weight: 600; color: var(--gray-900);">- R$ 120,00</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <svg style="width: 1.25rem; height: 1.25rem; color: var(--cyan-600);"><use href="#icon-credit-card"></use></svg>
+              <div>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Limite disponível</p>
+                <p style="font-weight: 600; color: var(--gray-900);">R$ 2.000,00</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+            <a href="extrato.html" class="btn btn-cyan btn-full">Ver extrato</a>
+            <a href="transferencia.html" class="btn btn-secondary btn-full">Fazer transferência</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./js/main.js"></script>
+  <script>
+    // Login form handler
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      showToast('Simulação de login: credenciais não são reais.', 'info');
+    });
+  </script>
+</body>
 </html>
