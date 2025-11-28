@@ -1,35 +1,261 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transferência / PIX — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transferência — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:40px 20px">
-    <h1>Transferência / PIX</h1>
-    <p>Simulador de transferência. Não realiza transação real.</p>
-    <p><a href="./main.html">Voltar à página inicial</a></p>
+
+  <main class="section bg-gradient">
+    <div class="container" style="max-width: 42rem;">
+      <div class="section-header">
+        <h1 class="section-title">Transferência</h1>
+        <p class="section-description">
+          Envie dinheiro via PIX, TED ou DOC
+        </p>
+      </div>
+      
+      <!-- Tipo de Transferência -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-content">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.75rem;">
+            <button class="btn btn-cyan tipo-transfer active" data-tipo="pix">PIX</button>
+            <button class="btn btn-secondary tipo-transfer" data-tipo="ted">TED</button>
+            <button class="btn btn-secondary tipo-transfer" data-tipo="doc">DOC</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Formulário PIX -->
+      <div class="card" id="formPix">
+        <div class="card-header">
+          <h2 class="card-title">Transferir via PIX</h2>
+          <p class="card-description">Transferência instantânea 24/7</p>
+        </div>
+        <div class="card-content">
+          <form id="pixForm">
+            <div class="form-group">
+              <label class="form-label" for="tipoChave">Tipo de chave</label>
+              <select class="form-input" id="tipoChave" name="tipoChave" required>
+                <option value="">Selecione</option>
+                <option value="cpf">CPF</option>
+                <option value="email">E-mail</option>
+                <option value="telefone">Telefone</option>
+                <option value="aleatoria">Chave aleatória</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="chavePix">Chave PIX</label>
+              <input class="form-input" type="text" id="chavePix" name="chavePix" placeholder="Digite a chave PIX" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="valorPix">Valor</label>
+              <input class="form-input" type="number" id="valorPix" name="valorPix" placeholder="R$ 0,00" step="0.01" min="0.01" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="descricaoPix">Descrição (opcional)</label>
+              <input class="form-input" type="text" id="descricaoPix" name="descricaoPix" placeholder="Ex: Pagamento almoço">
+            </div>
+            
+            <button type="submit" class="btn btn-cyan btn-full">Transferir agora</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Formulário TED -->
+      <div class="card" id="formTed" style="display: none;">
+        <div class="card-header">
+          <h2 class="card-title">Transferir via TED</h2>
+          <p class="card-description">Transferência entre bancos</p>
+        </div>
+        <div class="card-content">
+          <form id="tedForm">
+            <div class="form-group">
+              <label class="form-label" for="bancoDest">Banco</label>
+              <input class="form-input" type="text" id="bancoDest" name="bancoDest" placeholder="Código ou nome do banco" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="agenciaDest">Agência</label>
+              <input class="form-input" type="text" id="agenciaDest" name="agenciaDest" inputmode="numeric" placeholder="0000" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="contaDest">Conta</label>
+              <input class="form-input" type="text" id="contaDest" name="contaDest" inputmode="numeric" placeholder="000000-0" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="nomeDest">Nome do favorecido</label>
+              <input class="form-input" type="text" id="nomeDest" name="nomeDest" placeholder="Nome completo" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="valorTed">Valor</label>
+              <input class="form-input" type="number" id="valorTed" name="valorTed" placeholder="R$ 0,00" step="0.01" min="0.01" required>
+            </div>
+            
+            <button type="submit" class="btn btn-cyan btn-full">Transferir</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Formulário DOC -->
+      <div class="card" id="formDoc" style="display: none;">
+        <div class="card-header">
+          <h2 class="card-title">Transferir via DOC</h2>
+          <p class="card-description">Transferência com compensação em 1 dia útil</p>
+        </div>
+        <div class="card-content">
+          <form id="docForm">
+            <div class="form-group">
+              <label class="form-label" for="bancoDestDoc">Banco</label>
+              <input class="form-input" type="text" id="bancoDestDoc" name="bancoDestDoc" placeholder="Código ou nome do banco" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="agenciaDestDoc">Agência</label>
+              <input class="form-input" type="text" id="agenciaDestDoc" name="agenciaDestDoc" inputmode="numeric" placeholder="0000" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="contaDestDoc">Conta</label>
+              <input class="form-input" type="text" id="contaDestDoc" name="contaDestDoc" inputmode="numeric" placeholder="000000-0" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="nomeDestDoc">Nome do favorecido</label>
+              <input class="form-input" type="text" id="nomeDestDoc" name="nomeDestDoc" placeholder="Nome completo" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="valorDoc">Valor</label>
+              <input class="form-input" type="number" id="valorDoc" name="valorDoc" placeholder="R$ 0,00" step="0.01" min="0.01" required>
+            </div>
+            
+            <button type="submit" class="btn btn-cyan btn-full">Transferir</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    // Toggle transfer type
+    const tipoButtons = document.querySelectorAll('.tipo-transfer');
+    const formPix = document.getElementById('formPix');
+    const formTed = document.getElementById('formTed');
+    const formDoc = document.getElementById('formDoc');
+    
+    tipoButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove active from all
+        tipoButtons.forEach(b => {
+          b.classList.remove('btn-cyan', 'active');
+          b.classList.add('btn-secondary');
+        });
+        
+        // Add active to clicked
+        this.classList.remove('btn-secondary');
+        this.classList.add('btn-cyan', 'active');
+        
+        // Show corresponding form
+        const tipo = this.dataset.tipo;
+        formPix.style.display = tipo === 'pix' ? 'block' : 'none';
+        formTed.style.display = tipo === 'ted' ? 'block' : 'none';
+        formDoc.style.display = tipo === 'doc' ? 'block' : 'none';
+      });
+    });
+    
+    // Form submissions
+    document.getElementById('pixForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (validateForm('pixForm')) {
+        showToast('Transferência PIX realizada com sucesso!', 'success');
+        this.reset();
+      }
+    });
+    
+    document.getElementById('tedForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (validateForm('tedForm')) {
+        showToast('Transferência TED agendada com sucesso!', 'success');
+        this.reset();
+      }
+    });
+    
+    document.getElementById('docForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (validateForm('docForm')) {
+        showToast('Transferência DOC agendada com sucesso!', 'success');
+        this.reset();
+      }
+    });
+  </script>
 </body>
 </html>

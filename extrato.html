@@ -1,35 +1,278 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Extrato — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extrato — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </symbol>
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <polyline points="19 12 12 19 5 12"></polyline>
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:40px 20px">
-    <h1>Extrato</h1>
-    <p>Lista de movimentações (simulação).</p>
-    <p><a href="./main.html">Voltar à página inicial</a></p>
+
+  <main class="section bg-gradient">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h1 class="section-title" style="margin-bottom: 0.5rem; text-align: left;">Extrato</h1>
+          <p class="section-description" style="text-align: left; margin: 0;">Suas movimentações financeiras</p>
+        </div>
+        <button class="btn btn-secondary" onclick="showToast('Função em desenvolvimento', 'info')">
+          <svg style="width: 1.25rem; height: 1.25rem; margin-right: 0.5rem;"><use href="#icon-download"></use></svg>
+          Exportar PDF
+        </button>
+      </div>
+      
+      <!-- Filtros -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-content">
+          <div class="grid grid-2">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="dataInicio">Data inicial</label>
+              <input class="form-input" type="date" id="dataInicio" name="dataInicio">
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="dataFim">Data final</label>
+              <input class="form-input" type="date" id="dataFim" name="dataFim">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Resumo -->
+      <div class="grid grid-2" style="margin-bottom: 1.5rem;">
+        <div class="card">
+          <div class="card-content">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 3rem; height: 3rem; background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.5rem; height: 1.5rem; color: var(--emerald-600);"><use href="#icon-arrow-down"></use></svg>
+              </div>
+              <div>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Entradas</p>
+                <p style="font-size: 1.5rem; font-weight: 700; color: var(--emerald-600);">+ R$ 3.450,00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 3rem; height: 3rem; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.5rem; height: 1.5rem; color: var(--red-500);"><use href="#icon-arrow-up"></use></svg>
+              </div>
+              <div>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Saídas</p>
+                <p style="font-size: 1.5rem; font-weight: 700; color: var(--red-500);">- R$ 2.215,80</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Transações -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Todas as transações</h2>
+          <p class="card-description">Últimos 30 dias</p>
+        </div>
+        <div class="card-content" style="padding: 0;">
+          <!-- Hoje -->
+          <div style="padding: 1rem 1.5rem; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);">
+            <p style="font-weight: 600; color: var(--gray-700); font-size: 0.875rem;">HOJE</p>
+          </div>
+          
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--red-500);"><use href="#icon-arrow-up"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Transferência enviada</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">PIX - Maria Silva</p>
+                <p style="font-size: 0.75rem; color: var(--gray-500);">14:32</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--red-500);">- R$ 120,00</p>
+          </div>
+          
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--red-500);"><use href="#icon-arrow-up"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Supermercado Extra</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Cartão de crédito</p>
+                <p style="font-size: 0.75rem; color: var(--gray-500);">10:15</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--red-500);">- R$ 234,50</p>
+          </div>
+          
+          <!-- Ontem -->
+          <div style="padding: 1rem 1.5rem; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);">
+            <p style="font-weight: 600; color: var(--gray-700); font-size: 0.875rem;">ONTEM</p>
+          </div>
+          
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--emerald-600);"><use href="#icon-arrow-down"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Transferência recebida</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">PIX - João Santos</p>
+                <p style="font-size: 0.75rem; color: var(--gray-500);">09:15</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--emerald-600);">+ R$ 850,00</p>
+          </div>
+          
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--red-500);"><use href="#icon-arrow-up"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Netflix</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Cartão de crédito</p>
+                <p style="font-size: 0.75rem; color: var(--gray-500);">08:30</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--red-500);">- R$ 55,90</p>
+          </div>
+          
+          <!-- 25/11/2025 -->
+          <div style="padding: 1rem 1.5rem; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);">
+            <p style="font-weight: 600; color: var(--gray-700); font-size: 0.875rem;">25/11/2025</p>
+          </div>
+          
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--red-500);"><use href="#icon-arrow-up"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Conta de Luz - CEMIG</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Pagamento de conta</p>
+                <p style="font-size: 0.75rem; color: var(--gray-500);">16:45</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--red-500);">- R$ 245,80</p>
+          </div>
+          
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--red-500);"><use href="#icon-arrow-up"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Posto Shell</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Cartão de débito</p>
+                <p style="font-size: 0.75rem; color: var(--gray-500);">11:20</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--red-500);">- R$ 180,00</p>
+          </div>
+          
+          <div style="padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--emerald-600);"><use href="#icon-arrow-down"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Salário</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Depósito</p>
+                <p style="font-size: 0.75rem; color: var(--gray-500);">08:00</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--emerald-600);">+ R$ 2.600,00</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    // Set default date range (last 30 days)
+    const hoje = new Date();
+    const trintaDiasAtras = new Date();
+    trintaDiasAtras.setDate(hoje.getDate() - 30);
+    
+    document.getElementById('dataFim').value = hoje.toISOString().split('T')[0];
+    document.getElementById('dataInicio').value = trintaDiasAtras.toISOString().split('T')[0];
+  </script>
 </body>
 </html>

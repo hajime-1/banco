@@ -1,35 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Investimentos — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investimentos — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+      <polyline points="17 6 23 6 23 12"></polyline>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link active">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link active">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:40px 20px">
-    <h1>Investimentos</h1>
-    <p>Seção de investimentos — resumos e aplicações (simulação).</p>
-    <p><a href="./main.html">Voltar à página inicial</a></p>
+
+  <main class="section bg-gradient">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Investimentos</h1>
+        <p class="section-description">
+          Faça seu dinheiro render com segurança e rentabilidade
+        </p>
+      </div>
+      
+      <!-- Resumo dos Investimentos -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-content">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+            <div>
+              <p style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Saldo total investido</p>
+              <p style="font-size: 2.5rem; font-weight: 700; color: var(--gray-900);">R$ 15.430,00</p>
+            </div>
+            <svg style="width: 4rem; height: 4rem; color: var(--emerald-600);"><use href="#icon-trending-up"></use></svg>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
+            <div>
+              <p style="font-size: 0.75rem; color: var(--gray-600);">Rendimento (mês)</p>
+              <p style="font-weight: 600; color: var(--emerald-600);">+ R$ 124,50</p>
+            </div>
+            <div>
+              <p style="font-size: 0.75rem; color: var(--gray-600);">Rentabilidade</p>
+              <p style="font-weight: 600; color: var(--emerald-600);">+ 0,81%</p>
+            </div>
+            <div>
+              <p style="font-size: 0.75rem; color: var(--gray-600);">Total aplicado</p>
+              <p style="font-weight: 600; color: var(--gray-900);">R$ 15.000,00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Meus Investimentos -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <h2 class="card-title">Meus investimentos</h2>
+          <p class="card-description">Produtos que você já possui</p>
+        </div>
+        <div class="card-content" style="padding: 0;">
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">CDB Liquidez Diária</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">110% do CDI</p>
+              </div>
+              <p style="font-weight: 700; color: var(--gray-900);">R$ 8.500,00</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: var(--emerald-600);">Rendimento: + R$ 68,50</span>
+              <span style="color: var(--gray-600);">+ 0,81%</span>
+            </div>
+          </div>
+          
+          <div style="padding: 1rem 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Tesouro Selic 2029</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Renda Fixa</p>
+              </div>
+              <p style="font-weight: 700; color: var(--gray-900);">R$ 6.930,00</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: var(--emerald-600);">Rendimento: + R$ 56,00</span>
+              <span style="color: var(--gray-600);">+ 0,81%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Produtos Disponíveis -->
+      <div class="section-header" style="margin-top: 2rem;">
+        <h2 class="section-title" style="font-size: 1.75rem;">Produtos disponíveis</h2>
+        <p class="section-description">Comece a investir hoje mesmo</p>
+      </div>
+      
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-content">
+            <div style="width: 3rem; height: 3rem; background: linear-gradient(135deg, var(--cyan-500), var(--teal-600)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: white;"><use href="#icon-trending-up"></use></svg>
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">CDB</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem; font-size: 0.875rem;">Certificado de Depósito Bancário com liquidez diária</p>
+            <p style="font-weight: 600; color: var(--cyan-700); margin-bottom: 1rem;">A partir de 100% do CDI</p>
+            <button class="btn btn-cyan btn-full" onclick="showToast('Função em desenvolvimento', 'info')">Investir agora</button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <div style="width: 3rem; height: 3rem; background: linear-gradient(135deg, var(--emerald-500), var(--teal-600)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: white;"><use href="#icon-trending-up"></use></svg>
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">Tesouro Direto</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem; font-size: 0.875rem;">Títulos públicos com diferentes prazos e rentabilidades</p>
+            <p style="font-weight: 600; color: var(--emerald-700); margin-bottom: 1rem;">A partir de R$ 30,00</p>
+            <button class="btn btn-cyan btn-full" onclick="showToast('Função em desenvolvimento', 'info')">Investir agora</button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <div style="width: 3rem; height: 3rem; background: linear-gradient(135deg, var(--blue-600), var(--cyan-600)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: white;"><use href="#icon-trending-up"></use></svg>
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">Fundos de Investimento</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem; font-size: 0.875rem;">Diversifique seus investimentos com gestão profissional</p>
+            <p style="font-weight: 600; color: var(--blue-700); margin-bottom: 1rem;">Várias opções disponíveis</p>
+            <button class="btn btn-cyan btn-full" onclick="showToast('Função em desenvolvimento', 'info')">Investir agora</button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <div style="width: 3rem; height: 3rem; background: linear-gradient(135deg, var(--slate-600), var(--slate-800)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: white;"><use href="#icon-trending-up"></use></svg>
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem;">LCI/LCA</h3>
+            <p style="color: var(--gray-600); margin-bottom: 1rem; font-size: 0.875rem;">Investimentos isentos de Imposto de Renda</p>
+            <p style="font-weight: 600; color: var(--slate-700); margin-bottom: 1rem;">A partir de 90% do CDI</p>
+            <button class="btn btn-cyan btn-full" onclick="showToast('Função em desenvolvimento', 'info')">Investir agora</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
 </body>
 </html>

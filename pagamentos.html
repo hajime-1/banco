@@ -1,35 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pagamentos — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamentos — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:40px 20px">
-    <h1>Pagamentos e Boletos</h1>
-    <p>Área de pagamentos — simulação de pagamento de boletos.</p>
-    <p><a href="./main.html">Voltar à página inicial</a></p>
+
+  <main class="section bg-gradient">
+    <div class="container" style="max-width: 42rem;">
+      <div class="section-header">
+        <h1 class="section-title">Pagamentos</h1>
+        <p class="section-description">
+          Pague contas e boletos de forma rápida e segura
+        </p>
+      </div>
+      
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <h2 class="card-title">Pagar boleto</h2>
+          <p class="card-description">Digite ou escaneie o código de barras</p>
+        </div>
+        <div class="card-content">
+          <form id="pagamentoForm">
+            <div class="form-group">
+              <label class="form-label" for="codigoBarras">Código de barras</label>
+              <input class="form-input" type="text" id="codigoBarras" name="codigoBarras" placeholder="00000.00000 00000.000000 00000.000000 0 00000000000000" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="dataPagamento">Data de pagamento</label>
+              <input class="form-input" type="date" id="dataPagamento" name="dataPagamento" required>
+            </div>
+            
+            <button type="submit" class="btn btn-cyan btn-full">Continuar</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Contas agendadas</h2>
+          <p class="card-description">Pagamentos programados</p>
+        </div>
+        <div class="card-content" style="padding: 0;">
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Conta de Luz - CEMIG</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Vencimento: 05/12/2025</p>
+              </div>
+              <p style="font-weight: 700; color: var(--gray-900);">R$ 185,40</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;" onclick="showToast('Pagamento cancelado', 'info')">Cancelar agendamento</button>
+          </div>
+          
+          <div style="padding: 1rem 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Internet - Vivo Fibra</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Vencimento: 10/12/2025</p>
+              </div>
+              <p style="font-weight: 700; color: var(--gray-900);">R$ 129,90</p>
+            </div>
+            <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;" onclick="showToast('Pagamento cancelado', 'info')">Cancelar agendamento</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    // Set today's date as default
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('dataPagamento').value = today;
+    
+    document.getElementById('pagamentoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      if (validateForm('pagamentoForm')) {
+        showToast('Pagamento agendado com sucesso!', 'success');
+        this.reset();
+        document.getElementById('dataPagamento').value = today;
+      } else {
+        showToast('Por favor, preencha todos os campos.', 'error');
+      }
+    });
+  </script>
 </body>
 </html>

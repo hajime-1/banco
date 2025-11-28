@@ -1,35 +1,245 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Conta — Protótipo</title>
-  <link rel="stylesheet" href="./front.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Conta — Banco Moderno</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <svg style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </symbol>
+    <symbol id="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+      <line x1="1" y1="1" x2="23" y2="23"></line>
+    </symbol>
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </symbol>
+    <symbol id="icon-arrow-down-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="17" y1="7" x2="7" y2="17"></line>
+      <polyline points="17 17 7 17 7 7"></polyline>
+    </symbol>
+  </svg>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">Banco<span class="brand-accent">•</span></div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="./conta.html">Conta</a></li>
-          <li><a href="./cartoes.html">Cartões</a></li>
-          <li><a href="./emprestimos.html">Empréstimos</a></li>
-          <li><a href="./investimentos.html">Investimentos</a></li>
-        </ul>
-      </nav>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-gradient">Banco</span>
+          <span class="logo-dot">•</span>
+        </a>
+        
+        <nav class="nav">
+          <a href="conta.html" class="nav-link active">Conta</a>
+          <a href="cartoes.html" class="nav-link">Cartões</a>
+          <a href="emprestimos.html" class="nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="nav-link">Investimentos</a>
+        </nav>
+        
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg><use href="#icon-menu"></use></svg>
+        </button>
+      </div>
+      
+      <div class="mobile-nav">
+        <div class="container">
+          <a href="conta.html" class="mobile-nav-link active">Conta</a>
+          <a href="cartoes.html" class="mobile-nav-link">Cartões</a>
+          <a href="emprestimos.html" class="mobile-nav-link">Empréstimos</a>
+          <a href="investimentos.html" class="mobile-nav-link">Investimentos</a>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container" style="padding:40px 20px">
-    <h1>Área da Conta</h1>
-    <p>Esta é a página de destino para a seção "Conta". Conteúdo de demonstração.</p>
-    <p><a href="./main.html">Voltar à página inicial</a></p>
+
+  <main class="section bg-gradient">
+    <div class="container">
+      <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem;">
+          Olá, João! 👋
+        </h1>
+        <p style="color: var(--gray-600);">Bem-vindo de volta à sua conta</p>
+      </div>
+      
+      <!-- Saldo -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-content">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+            <div>
+              <p style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.5rem;">Saldo disponível</p>
+              <p id="saldoDisplay" style="font-size: 2.5rem; font-weight: 700; color: var(--gray-900);">R$ 5.234,50</p>
+            </div>
+            <button id="toggleSaldo" class="btn btn-secondary" style="padding: 0.5rem;">
+              <svg id="eyeIcon" style="width: 1.25rem; height: 1.25rem;"><use href="#icon-eye"></use></svg>
+            </button>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
+            <div>
+              <p style="font-size: 0.75rem; color: var(--gray-600);">Agência</p>
+              <p style="font-weight: 600; color: var(--gray-900);">0001</p>
+            </div>
+            <div>
+              <p style="font-size: 0.75rem; color: var(--gray-600);">Conta</p>
+              <p style="font-weight: 600; color: var(--gray-900);">123456-7</p>
+            </div>
+            <div>
+              <p style="font-size: 0.75rem; color: var(--gray-600);">Tipo</p>
+              <p style="font-weight: 600; color: var(--gray-900);">Conta Corrente</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ações Rápidas -->
+      <div class="grid grid-4" style="margin-bottom: 2rem;">
+        <a href="transferencia.html" class="card" style="text-decoration: none; padding: 1.5rem; transition: all 0.2s;">
+          <div style="text-align: center;">
+            <div style="width: 3rem; height: 3rem; margin: 0 auto 0.75rem; background: linear-gradient(135deg, var(--cyan-500), var(--teal-600)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: white;"><use href="#icon-arrow-up-right"></use></svg>
+            </div>
+            <p style="font-weight: 600; color: var(--gray-900);">Transferir</p>
+          </div>
+        </a>
+        
+        <a href="pagamentos.html" class="card" style="text-decoration: none; padding: 1.5rem; transition: all 0.2s;">
+          <div style="text-align: center;">
+            <div style="width: 3rem; height: 3rem; margin: 0 auto 0.75rem; background: linear-gradient(135deg, var(--emerald-500), var(--teal-600)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: white;"><use href="#icon-arrow-down-left"></use></svg>
+            </div>
+            <p style="font-weight: 600; color: var(--gray-900);">Pagar</p>
+          </div>
+        </a>
+        
+        <a href="extrato.html" class="card" style="text-decoration: none; padding: 1.5rem; transition: all 0.2s;">
+          <div style="text-align: center;">
+            <div style="width: 3rem; height: 3rem; margin: 0 auto 0.75rem; background: linear-gradient(135deg, var(--blue-600), var(--cyan-600)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: white;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </div>
+            <p style="font-weight: 600; color: var(--gray-900);">Extrato</p>
+          </div>
+        </a>
+        
+        <a href="cartoes.html" class="card" style="text-decoration: none; padding: 1.5rem; transition: all 0.2s;">
+          <div style="text-align: center;">
+            <div style="width: 3rem; height: 3rem; margin: 0 auto 0.75rem; background: linear-gradient(135deg, var(--slate-600), var(--slate-800)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 1.5rem; height: 1.5rem; color: white;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+            </div>
+            <p style="font-weight: 600; color: var(--gray-900);">Cartões</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Últimas Transações -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Últimas transações</h2>
+          <p class="card-description">Suas movimentações recentes</p>
+        </div>
+        <div class="card-content" style="padding: 0;">
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: var(--red-500); opacity: 0.1; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--red-500);"><use href="#icon-arrow-up-right"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Transferência enviada</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Hoje, 14:32</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--red-500);">- R$ 120,00</p>
+          </div>
+          
+          <div style="border-bottom: 1px solid var(--gray-200); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: var(--emerald-500); opacity: 0.1; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--emerald-500);"><use href="#icon-arrow-down-left"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Transferência recebida</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">Ontem, 09:15</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--emerald-500);">+ R$ 850,00</p>
+          </div>
+          
+          <div style="padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 2.5rem; height: 2.5rem; background: var(--red-500); opacity: 0.1; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                <svg style="width: 1.25rem; height: 1.25rem; color: var(--red-500);"><use href="#icon-arrow-up-right"></use></svg>
+              </div>
+              <div>
+                <p style="font-weight: 600; color: var(--gray-900);">Pagamento de conta</p>
+                <p style="font-size: 0.875rem; color: var(--gray-600);">25/11/2025</p>
+              </div>
+            </div>
+            <p style="font-weight: 700; color: var(--red-500);">- R$ 245,80</p>
+          </div>
+        </div>
+        <div style="padding: 1rem 1.5rem; border-top: 1px solid var(--gray-200);">
+          <a href="extrato.html" class="btn btn-secondary btn-full">Ver extrato completo</a>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>Protótipo — demonstração</div>
-      <div class="small">Não usar para fins reais</div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-text">
+          Protótipo inspirado em layouts bancários — sem logotipos ou marcas registradas.
+        </p>
+        <p class="footer-small">
+          Feito para demonstração. Não use para fins reais.
+        </p>
+      </div>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    // Toggle saldo visibility
+    let saldoVisible = true;
+    const saldoDisplay = document.getElementById('saldoDisplay');
+    const toggleBtn = document.getElementById('toggleSaldo');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const saldoOriginal = 'R$ 5.234,50';
+    
+    toggleBtn.addEventListener('click', function() {
+      saldoVisible = !saldoVisible;
+      
+      if (saldoVisible) {
+        saldoDisplay.textContent = saldoOriginal;
+        eyeIcon.innerHTML = '<use href="#icon-eye"></use>';
+      } else {
+        saldoDisplay.textContent = 'R$ •••••';
+        eyeIcon.innerHTML = '<use href="#icon-eye-off"></use>';
+      }
+    });
+  </script>
 </body>
 </html>
