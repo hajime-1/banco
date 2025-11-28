@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abrir Conta — Protótipo</title>
+  <link rel="stylesheet" href="front.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Banco<span class="brand-accent">•</span></div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="conta.html">Conta</a></li>
+          <li><a href="cartoes.html">Cartões</a></li>
+          <li><a href="emprestimos.html">Empréstimos</a></li>
+          <li><a href="investimentos.html">Investimentos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container" style="padding:24px 20px;max-width:700px">
+    <h1>Abrir Conta</h1>
+    <p>Preencha seus dados pessoais. Esta é uma simulação — os dados serão gravados em um banco SQLite local pelo servidor.</p>
+
+    <form id="openAccount" method="post" action="/api/abrir-conta" target="_blank">
+      <label for="nome">Nome completo</label>
+      <input id="nome" name="nome" type="text" required>
+
+      <label for="cpf">CPF</label>
+      <input id="cpf" name="cpf" type="text" inputmode="numeric" required>
+
+      <label for="email">E‑mail</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="telefone">Telefone</label>
+      <input id="telefone" name="telefone" type="tel" inputmode="tel">
+
+      <label for="agencia">Agência</label>
+      <input id="agencia" name="agencia" type="text">
+
+      <label for="conta">Conta</label>
+      <input id="conta" name="conta" type="text">
+
+      <label for="senha">Senha</label>
+      <input id="senha" name="senha" type="password" required>
+
+      <div style="margin-top:14px">
+        <button class="btn btn-primary" type="submit">Enviar e abrir nova aba</button>
+        <a class="btn" href="main.html">Cancelar</a>
+      </div>
+    </form>
+
+    <p style="margin-top:18px;font-size:13px;color:#6b7280">Ao enviar, o servidor local irá gravar os dados no arquivo de banco de dados SQLite.</p>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>Protótipo — demonstração</div>
+      <div class="small">Não usar para fins reais</div>
+    </div>
+  </footer>
+</body>
+</html>
