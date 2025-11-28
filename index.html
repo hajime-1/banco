@@ -1,15 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=/banco/main">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Redirecting…</title>
-    <script>
-        window.location.href = "./banco/main";
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=https://hajime-1.github.io/banco/main">
+    <title>Redirect</title>
 </head>
-<body>
-    <p>Redirecting to <a href="./banco/main">main</a>…</p>
-</body>
+    <body>
+        Redirecting to <a href="https://hajime-1.github.io/banco/main">Landing Page</a>...
+    </body>
+    <script>
+        // set it as a fallback
+        setTimeout(function() {
+            window.location.href = "https://hajime-1.github.io/banco/main";
+        }, 500);
+    </script>
 </html>
