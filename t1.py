@@ -73,14 +73,14 @@ def abrir_conta():
     <!doctype html>
     <html lang="pt-BR">
     <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Conta criada</title>
-    <link rel="stylesheet" href="front.css"></head>
+    <link rel="stylesheet" href="./front.css"></head>
     <body>
       <header class="site-header"><div class="container header-inner"><div class="brand">Banco<span class="brand-accent">•</span></div></div></header>
       <main class="container" style="padding:24px 20px;max-width:700px">
         <h1>Conta criada (simulação)</h1>
         <p>Obrigado, <strong>{nome}</strong>. Seus dados foram gravados com sucesso no banco local.</p>
         <p>ID gerado: <em>{last_id}</em></p>
-        <p><a href="main.html">Voltar à página inicial</a></p>
+        <p><a href="./main.html">Voltar à página inicial</a></p>
       </main>
     </body>
     </html>
@@ -121,7 +121,7 @@ def admin():
         <!doctype html>
         <html lang="pt-BR">
         <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin - Registros</title>
-        <link rel="stylesheet" href="front.css"></head>
+        <link rel="stylesheet" href="./front.css"></head>
         <body>
             <header class="site-header"><div class="container header-inner"><div class="brand">Banco<span class="brand-accent">•</span></div></div></header>
             <main class="container" style="padding:24px 20px;max-width:1100px">
@@ -133,7 +133,7 @@ def admin():
                         {rows_html}
                     </tbody>
                 </table>
-                <p style="margin-top:18px"><a href="main.html">Voltar à página inicial</a></p>
+                <p style="margin-top:18px"><a href="./main.html">Voltar à página inicial</a></p>
             </main>
         </body>
         </html>
